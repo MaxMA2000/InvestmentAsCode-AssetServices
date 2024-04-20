@@ -11,6 +11,12 @@ const fetchAssets = async (type) => {
   return response;
 }
 
+const fetchAssetsById = async (id) => {
+  const url = `${DAL_URL}/data/v1/asset/byId?id=${id.toString()}`
+  const response = await axios.get(url)
+  return response;
+}
+
 const fetchAssetsByType = async (type) => {
   const url = `${DAL_URL}/data/v1/asset/byType?type=${type}`
   const response = await axios.get(url)
@@ -26,6 +32,7 @@ const fetchAssetsBySymbol = async (symbol) => {
 
 module.exports = {
   fetchAssets,
+  fetchAssetsById,
   fetchAssetsByType,
   fetchAssetsBySymbol
 };
