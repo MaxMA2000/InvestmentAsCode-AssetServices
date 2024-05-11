@@ -1,19 +1,23 @@
 pipeline {
   agent any
     
-    stage('Build Docker image') {
-      steps {
-        script {
-          docker.build('InvestmentAsCode-AssetServices')
+    stages{
+
+        stage('Build Docker image') {
+            steps {
+                script {
+                docker.build('InvestmentAsCode-AssetServices')
+                }
+            }
         }
-      }
-    }
-    
-    stage('Run Docker container') {
-      steps {
-        script {
-          docker.image('InvestmentAsCode-AssetServices').run()
+        
+        stage('Run Docker container') {
+            steps {
+                script {
+                docker.image('InvestmentAsCode-AssetServices').run()
+                }
+            }
         }
-      }
+
     }
 }
